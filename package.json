@@ -1,0 +1,25 @@
+{
+  "name": "workflow-stats",
+  "version": "1.0.0",
+  "description": "Workflow statistics",
+  "scripts": {
+    "postinstall": "./node_modules/bower/bin/bower install"
+  },
+  "author": "Antoine Dubé",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "bower": "^1.7.9",
+    "express": "^4.14.0",
+    "morgan": "^1.7.0",
+    "pg": "^5.1.0",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.23.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "eslint": "^2.13.0",
+    "eslint-plugin-react": "^5.2.2",
+    "mocha": "^2.5.3",
+    "sinon": "^1.17.4"
+  }
+}

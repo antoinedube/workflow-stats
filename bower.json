@@ -1,0 +1,15 @@
+{
+  "name": "workflow-stats",
+  "description": "Workflow statistics for a Scrum-based project.",
+  "main": "index.js",
+  "authors": [
+    "Antoine Dubé"
+  ],
+  "license": "GPL-3.0",
+  "homepage": "",
+  "private": true,
+  "dependencies": {
+    "react": "^15.1.0",
+    "babel": "*"
+  }
+}
