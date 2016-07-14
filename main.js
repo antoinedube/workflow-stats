@@ -11,4 +11,8 @@ app.use('/javascripts', express.static('client/javascripts'));
 // Do stuff for different model/api thingy.
 // ['api-token', 'issue', 'transition'].forEach(function (name) { require(name).register(); });
 
+['./server/controllers/users'].forEach(function(name) {
+  require(name).register(app);
+});
+
 app.listen(3000);
