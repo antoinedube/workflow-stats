@@ -3,12 +3,16 @@ module.exports = {
         "browser": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+      "eslint:recommended",
+      "plugin:lodash/recommended"
+    ],
     "installedESLint": true,
     "parserOptions": {
         "sourceType": "module"
     },
     "plugins": [
+      "eslint-plugin-lodash"
     ],
     "rules": {
         "indent": [
@@ -26,6 +30,12 @@ module.exports = {
         "semi": [
             "error",
             "always"
+        ],
+        "lodash/prefer-lodash-method": [
+          "error",
+          {
+            "except": ["find"]
+          }
         ]
     },
     "globals": {
