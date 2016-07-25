@@ -10,13 +10,13 @@ var register = function(app) {
     });
   });
 
-  app.get('/users/:id', function(req, res) {
+  app.get('/users/:id', authentication.isLoggedIn, function(req, res) {
     models.user.find({ id: req.params.id }).then(function(user) {
       res.json({ data: user });
     });
   });
 
-  app.post('/users', function(req, res) {
+  app.post('/users', authentication.isLoggedIn, function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
 

@@ -12,7 +12,8 @@ module.exports = {
         "sourceType": "module"
     },
     "plugins": [
-      "eslint-plugin-lodash"
+      "eslint-plugin-lodash",
+      "eslint-plugin-mocha"
     ],
     "rules": {
         "indent": [
@@ -40,6 +41,8 @@ module.exports = {
     },
     "globals": {
       "Sequalize": true,
-      "models": true
+      "models": true,
+      "describe": true,
+      "it": true
     }
 };
