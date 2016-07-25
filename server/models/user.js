@@ -7,29 +7,19 @@ module.exports = function(sequelize, DataTypes) {
     password: DataTypes.STRING
   }, {
     classMethods: {
-      associate: function(models) { // eslint-disable-line no-unused-vars
+      associate: function(models) {
         user.hasMany(models.api_token);
       }
     },
     instanceMethods: {
-      setPassword: function(password, done) {
-        return bcrypt.genSalt(10, function(err, salt) {
-          return bcrypt.hash(password, salt, function(error, encrypted) {
-            this.password = encrypted;
-            this.salt = salt;
-            return done();
-          });
-        });
+      setPassword: function(password) {
+        this.password = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
       },
-      verifyPassword: function(password, done) {
-        return bcrypt.compare(password, this.password, function(err, res) {
-          return done(err, res);
-        });
+      verifyPassword: function(password) {
+        return bcrypt.compareSync(password, this.password);
       }
     },
     paranoid: true
   });
   return user;
 };
-
-// https://stackoverflow.com/questions/19433824/using-instance-methods-in-sequelize

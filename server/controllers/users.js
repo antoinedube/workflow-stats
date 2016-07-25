@@ -1,8 +1,10 @@
 var models = require('../models/index');
 
+var authentication = require('../passport/authentication.js');
+
 var register = function(app) {
 
-  app.get('/users', function(req, res) {
+  app.get('/users', authentication.isLoggedIn, function(req, res) {
     models.user.findAll({}).then(function(users) {
       res.json({ data: users });
     });
@@ -18,11 +20,11 @@ var register = function(app) {
     var username = req.body.username;
     var password = req.body.password;
 
-    models.user.create({ username: username, email: 'abc@company.com' }).then(function(user) {
-      user.setPassword(password);
+    var user = models.user.build({ username: username, email: 'abc@company.com' });
+    user.setPassword(password);
+    user.save().then(function(savedUser) {
+      res.json({ data: savedUser });
     });
-    
-    res.json({ data: req.body });
   });
 };
 

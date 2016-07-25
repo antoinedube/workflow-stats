@@ -1,10 +1,16 @@
-var register = function(app) {
+var passport = require('passport');
 
-  app.get('/login', function(req, res) {
-  });
+var register = function(app) {
+  app.post('/login',
+    passport.authenticate('local'),
+    function(req, res) {
+      res.json({ 'message': 'Authentication successful' });
+    }
+  );
 
   app.post('/logout', function(req, res) {
-
+    req.logout();
+    res.json({ 'message': 'Logout successful' });
   });
 };
 
