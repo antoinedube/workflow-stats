@@ -1,22 +1,22 @@
 var models = require('../models/index');
 
-var authentication = require('../passport/authentication.js');
+var local_strategy = require('../passport/local-strategy.js');
 
 var register = function(app) {
 
-  app.get('/users', authentication.isLoggedIn, function(req, res) {
+  app.get('/users', local_strategy.isLoggedIn, function(req, res) {
     models.user.findAll({}).then(function(users) {
       res.json({ data: users });
     });
   });
 
-  app.get('/users/:id', authentication.isLoggedIn, function(req, res) {
+  app.get('/users/:id', local_strategy.isLoggedIn, function(req, res) {
     models.user.find({ id: req.params.id }).then(function(user) {
       res.json({ data: user });
     });
   });
 
-  app.post('/users', authentication.isLoggedIn, function(req, res) {
+  app.post('/users', local_strategy.isLoggedIn, function(req, res) {
     var username = req.body.username;
     var password = req.body.password;
 

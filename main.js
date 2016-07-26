@@ -5,6 +5,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var passport = require('passport');
+var local_strategy = require('./server/passport/local-strategy.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -18,7 +19,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-require('./server/passport/authentication.js').configure();
+local_strategy.configure();
 app.use(passport.initialize());
 app.use(passport.session());
 
