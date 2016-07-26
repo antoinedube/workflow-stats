@@ -4,10 +4,9 @@ module.exports = {
   up: function (queryInterface, Sequelize) { // eslint-disable-line no-unused-vars
     return queryInterface.bulkInsert('api_tokens', [
       {
-        value: 'abcdefghijklmnopqrstuvwxyz',
+        value: 'ahsdoifausyfoewufhlkdvhxlkjvhasdliaufyoesuiasfhdlkjvz',
         createdAt: new Date().toISOString(),
-        updatedAt: new Date().toISOString(),
-        userId: 1
+        updatedAt: new Date().toISOString()
       }
     ], {});
   },

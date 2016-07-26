@@ -21,7 +21,7 @@ module.exports = {
       }
     });
   },
-  down: function(queryInterface, Sequelize) { // eslint-disable-line no-unused-vars
+  down: function(queryInterface, Sequelize) {
     return queryInterface.dropTable('api_tokens');
   }
 };

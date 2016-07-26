@@ -2,7 +2,6 @@ var models = require('../models/index');
 
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
-var UniqueTokenStrategy = require('passport-unique-token').Strategy;
 
 var configure = function() {
   passport.use(new LocalStrategy(
@@ -28,36 +27,20 @@ var configure = function() {
       done(null, user);
     });
   });
-
-  passport.use(new UniqueTokenStrategy(
-    function (token, done) {
-      models.api_token.findOne({ value: token }, function (err, token) {
-        if (err) {
-          return done(err);
-        }
-
-        if (!token) {
-          return done(null, false);
-        }
-
-        return done(null, token);
-      });
-    }
-  ));
 };
 
 var isTokenValid = function(req, res, next) {
-  passport.authenticate('token', function (err, token, info) { // eslint-disable-line no-unused-vars
-    if (err) {
-      return next(err);
+  models.api_token.findOne({
+    where: {
+      value: req.query.token
     }
-
-    if (!token) {
-      res.status(401).json({message: 'Incorrect token credentials'});
+  }).then(function(token) {
+    if (token) {
+      next();
     }
-
-    req.user = token;
-    next();
+    else {
+      res.json({ 'message': 'Invalid token'});
+    }
   });
 };
 

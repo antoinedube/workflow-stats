@@ -5,7 +5,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) { // eslint-disable-line no-unused-vars
-        api_token.belongsTo(models.user);
+        // associations can be defined here
       }
     }
   });

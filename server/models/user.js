@@ -7,8 +7,7 @@ module.exports = function(sequelize, DataTypes) {
     password: DataTypes.STRING
   }, {
     classMethods: {
-      associate: function(models) {
-        user.hasMany(models.api_token);
+      associate: function(models) { // eslint-disable-line no-unused-vars
       }
     },
     instanceMethods: {
