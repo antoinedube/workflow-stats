@@ -40,9 +40,12 @@ module.exports = {
         ]
     },
     "globals": {
-      "Sequalize": true,
-      "models": true,
+      "afterEach": true,
+      "beforeEach": true,
       "describe": true,
-      "it": true
+      "equal": true,
+      "it": true,
+      "models": true,
+      "Sequalize": true
     }
 };

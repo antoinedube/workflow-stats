@@ -26,11 +26,12 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "eslint": "^2.13.0",
-    "eslint-plugin-mocha": "^4.1.0",
     "eslint-plugin-lodash": "^1.9.4",
+    "eslint-plugin-mocha": "^4.1.0",
     "gulp-mocha": "^2.2.0",
     "mocha": "^2.5.3",
     "request": "^2.74.0",
+    "request-promise": "^4.0.2",
     "sinon": "^1.17.4"
   }
 }
