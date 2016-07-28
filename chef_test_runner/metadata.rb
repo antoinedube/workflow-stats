@@ -1,7 +1,0 @@
-name 'chef_test_runner'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'all_rights'
-description 'Installs/Configures chef_test_runner'
-long_description 'Installs/Configures chef_test_runner'
-version '0.1.0'

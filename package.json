@@ -2,6 +2,7 @@
   "name": "workflow-stats",
   "version": "1.0.0",
   "description": "Workflow statistics",
+  "repository": "https://github.com/antoinedube/workflow-stats",
   "scripts": {
     "postinstall": "./node_modules/bower/bin/bower install"
   },
