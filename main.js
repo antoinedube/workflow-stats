@@ -24,8 +24,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use('/', express.static('client/templates'));
-app.use('/bower_modules', express.static('client/bower_modules'));
-app.use('/javascripts', express.static('client/javascripts'));
+app.use('/javascripts', express.static('client/dist'));
+app.use('/stylesheets', express.static('client/dist'));
 
 var controllers_path = './server/controllers/';
 _.forEach(['authentication', 'issues', 'users'], function(name) {
