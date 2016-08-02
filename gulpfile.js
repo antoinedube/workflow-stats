@@ -4,6 +4,7 @@ var gulp = require('gulp');
 var mocha = require('gulp-mocha');
 var sass = require('gulp-sass');
 var concat = require('gulp-concat');
+var htmlmin = require('gulp-htmlmin');
 
 var client_tests = [
   'client/tests/**/*.test.js'
@@ -17,11 +18,20 @@ var api_tests = [
   'server/tests_api/**/*.test.js'
 ];
 
+var javascripts = [
+  'client/javascripts/**/*.jsx',
+  'client/javascripts/**/*.js'
+];
+
 var stylesheets = [
   'client/stylesheets/**/*.scss'
 ];
 
-gulp.task('default', ['build', 'scss']);
+var templates = [
+  'client/templates/**/*.html'
+];
+
+gulp.task('default', ['build', 'scss', 'minify-html']);
 gulp.task('tests', ['client-tests', 'server-tests', 'api-tests']);
 
 gulp.task('client-tests', function() {
@@ -51,4 +61,16 @@ gulp.task('scss', function () {
              .pipe(sass().on('error', sass.logError))
              .pipe(concat('application.css'))
              .pipe(gulp.dest('./client/dist/'));
+});
+
+gulp.task('minify-html', function() {
+  return gulp.src('client/templates/*.html')
+    .pipe(htmlmin({collapseWhitespace: true}))
+    .pipe(gulp.dest('./client/dist'));
+});
+
+gulp.task('watch', function() {
+  gulp.watch(javascripts, ['build']);
+  gulp.watch(stylesheets, ['scss']);
+  gulp.watch(templates, ['minify-html']);
 });

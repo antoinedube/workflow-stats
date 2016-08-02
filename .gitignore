@@ -1,3 +1,4 @@
-client/bower_modules
 node_modules
 server/database/config.json
+client/stylesheets/bootstrap.zip
+dist/

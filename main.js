@@ -23,7 +23,8 @@ local_strategy.configure();
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', express.static('client/templates'));
+app.use('/', express.static('client/dist'));
+app.use('/vendors', express.static('node_modules'));
 app.use('/javascripts', express.static('client/dist'));
 app.use('/stylesheets', express.static('client/dist'));
 
