@@ -10,7 +10,9 @@ export class Request {
   }
 
   post(data) {
-    return $.post(this.uri, data);
+    return $.post(this.uri, data, function(response) {
+      console.log('post response: ', response);
+    });
   }
 }
 

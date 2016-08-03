@@ -6,7 +6,11 @@ var LocalStrategy = require('passport-local').Strategy;
 var configure = function() {
   passport.use(new LocalStrategy(
     function(username, password, done) {
-      models.user.findOne({ username: username }).then(function (user) {
+      models.user.findOne({
+        where: {
+          username: username
+        }
+      }).then(function (user) {
         if (!user) {
           return done(null, false, { message: 'Incorrect username.' });
         }

@@ -1,7 +1,7 @@
 var passport = require('passport');
 
 var register = function(app) {
-  app.post('/login',
+  app.post('/login', 
     passport.authenticate('local'),
     function(req, res) {
       res.json({ 'message': 'Authentication successful' });

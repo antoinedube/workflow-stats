@@ -11,7 +11,7 @@ var isTokenValid = function(req, res, next) {
       next();
     }
     else {
-      res.json({ 'message': 'Invalid token'});
+      res.status(401).json({ 'message': 'Invalid token'});
     }
   });
 };

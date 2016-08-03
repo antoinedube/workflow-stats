@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('api_tokens', {
+    return queryInterface.createTable('api_tokens', { // eslint-disable-line no-unused-vars
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -21,7 +21,7 @@ module.exports = {
       }
     });
   },
-  down: function(queryInterface, Sequelize) {
+  down: function(queryInterface, Sequelize) { // eslint-disable-line no-unused-vars
     return queryInterface.dropTable('api_tokens');
   }
 };

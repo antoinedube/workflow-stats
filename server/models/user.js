@@ -7,6 +7,9 @@ module.exports = function(sequelize, DataTypes) {
     password: DataTypes.STRING
   }, {
     instanceMethods: {
+      fullName: function() {
+        return this.firstName + ' ' + this.lastName;
+      },
       setPassword: function(password) {
         this.password = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
       },

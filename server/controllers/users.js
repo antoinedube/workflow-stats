@@ -11,7 +11,9 @@ var register = function(app) {
   });
 
   app.get('/users/:id', local_strategy.isLoggedIn, function(req, res) {
-    models.user.find({ id: req.params.id }).then(function(user) {
+    models.user.find({
+      where: { id: req.params.id }
+    }).then(function(user) {
       res.json({ data: user });
     });
   });
