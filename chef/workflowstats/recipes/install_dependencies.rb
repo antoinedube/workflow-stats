@@ -5,7 +5,7 @@
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
 execute 'update_system' do
-  command 'apt-get update && apt-get upgrade'
+  command 'apt-get -y update && apt-get -y upgrade'
   user 'root'
   group 'root'
 end
