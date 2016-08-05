@@ -1,11 +1,13 @@
 var api_token_strategy = require('../passport/api-token-strategy.js');
+var models = require('../models/index');
+var logger = require('../logging/index.js');
 
 var register = function(app) {
   app.post('/issues', api_token_strategy.isTokenValid, function(req, res) {
-    console.log('\n'),
-    console.log(req.body);
-    console.log('----------------------------------------');
-    res.json({ 'message': 'success' });
+    models.issue.create({ 'content': req.body.title }).then(function(createdIssue) {
+      res.json({ 'message': 'success', 'issue': createdIssue });
+      logger.sql('SELECT success FROM status;');
+    });
   });
 };
 
