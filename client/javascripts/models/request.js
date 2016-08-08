@@ -1,25 +1,19 @@
 import $ from 'jquery';
 
-export class Request {
+export default class Request {
   constructor(uri) {
     this.uri = uri;
   }
 
-  get() {
+  index() {
     return $.get(this.uri);
   }
 
+  get(id) {
+    return $.get(this.uri + '/' + id);
+  }
+
   post(data) {
-    return $.post(this.uri, data, function(response) {
-      console.log('post response: ', response);
-    });
+    return $.post(this.uri, data);
   }
 }
-
-/*
-    let request = new Request('/users');
-    request.get().done((response) => {
-      console.log('response: ', response['message']);
-      this.setState({ content: response['message'] });
-    });
- */

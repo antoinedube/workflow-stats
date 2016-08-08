@@ -2,15 +2,11 @@ var winston = require('winston');
 
 var customLevels = {
   levels: {
-    sql: 0,
-    debug: 1,
-    info: 2,
-    error: 3
+    info: 1,
+    error: 0
   },
   colors: {
-    sql: 'blue',
-    debug: 'green',
-    info: 'yellow',
+    info: 'green',
     error: 'red'
   }
 };
@@ -18,8 +14,17 @@ var customLevels = {
 var logger = new (winston.Logger)({
   levels: customLevels.levels,
   transports: [
-    new (winston.transports.Console)({ level: 'sql' }),
-    new (winston.transports.Console)()
+    new (winston.transports.Console)(),
+    new (winston.transports.File)({
+      name: 'info-log',
+      filename: './server/logging/debug.log',
+      level: 'info'
+    }),
+    new (winston.transports.File)({
+      name: 'error-log',
+      filename: './server/logging/error.log',
+      level: 'error'
+    })
   ]
 });
 

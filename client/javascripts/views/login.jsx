@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Request } from '../models/request.js';
+import Request from '../models/request.js';
 
 export default class Login extends Component {
   constructor(props) {
@@ -16,7 +16,6 @@ export default class Login extends Component {
   }
 
   submitForm() {
-    console.log('Submit: ', this.state);
     let request = new Request('/login');
     request.post(this.state).done((response) => {
       console.log('response: ', response);

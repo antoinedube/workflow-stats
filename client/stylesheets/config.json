@@ -386,9 +386,12 @@
     "tables.less",
     "forms.less",
     "buttons.less",
+    "input-groups.less",
     "navs.less",
-    "navbar.less"
+    "navbar.less",
+    "badges.less",
+    "list-group.less"
   ],
   "js": [],
-  "customizerUrl": "https://getbootstrap.com/customize/?id=17f203c8240399456cfd838bf872b3d9"
+  "customizerUrl": "https://getbootstrap.com/customize/?id=ec9b363c940d2173fcda9b743dafc9ba"
 }

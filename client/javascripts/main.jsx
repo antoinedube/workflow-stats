@@ -4,7 +4,10 @@ import ReactDOM from 'react-dom';
 import { Router, Route, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 
+import Header from './header.jsx';
 import Login from './views/login.jsx';
+import UsersList from './views/users-list.jsx';
+
 
 const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
@@ -23,10 +26,16 @@ export default class App extends Component {
 
   render() {
     return (
-      <Router history={ appHistory }>
-        <Route path='/login' component={ Login } />
-        <Route path='*' component={ NotFound } />
-      </Router>
+      <div>
+        <Header />
+        <div className="page-content container-fluid">
+          <Router history={ appHistory }>
+            <Route path='/login' component={ Login } />
+            <Route path='/users' component={ UsersList } />
+            <Route path='*' component={ NotFound } />
+          </Router>
+        </div>
+      </div>
     );
   }
 }
