@@ -5,7 +5,6 @@ import Session from './session/session.js';
 export default class Header extends Component {
 
   handleLogoutClick() {
-    console.log('Logging out');
     let request = new Request('/logout');
     request.post({}).done(() => {
       Session.removeUser();

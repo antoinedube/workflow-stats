@@ -4,16 +4,8 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-execute 'update_system' do
-  command 'apt-get -y update && apt-get -y upgrade'
-  user 'root'
-  group 'root'
-end
-
-execute 'install_curl' do
-  command 'apt-get -y install curl'
-  user 'root'
-  group 'root'
+apt_package 'curl' do
+  action :install
 end
 
 execute 'add_remote_repository_for_nodejs' do
@@ -22,14 +14,10 @@ execute 'add_remote_repository_for_nodejs' do
   group 'root'
 end
 
-execute 'install_node' do
-  command 'apt-get -y install nodejs node-gyp'
-  user 'root'
-  group 'root'
+apt_package 'nodejs' do
+  action :install
 end
 
-execute 'install_git' do
-  command 'apt-get -y install git'
-  user 'root'
-  group 'root'
+apt_package 'node-gyp' do
+  action :install
 end

@@ -1,3 +1,7 @@
 source 'https://supermarket.chef.io'
 
 metadata
+
+# in dev, run 'berks install'
+cookbook "apt"
+cookbook "git"

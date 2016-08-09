@@ -4,9 +4,19 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-execute 'fetch_code' do
-  cwd '/home/vagrant'
-  command 'git clone https://github.com/antoinedube/workflow-stats.git'
+directory '/home/vagrant/workflow-stats' do
+  owner 'vagrant'
+  group 'vagrant'
+  mode '0755'
+  action :create
+end
+
+git '/home/vagrant/workflow-stats' do
+  repository 'https://github.com/antoinedube/workflow-stats.git'
+  revision 'master'
+  action :sync
+  user 'vagrant'
+  group 'vagrant'
 end
 
 execute 'install_npm_dependencies' do
@@ -18,7 +28,7 @@ end
 
 directory '/home/vagrant/workflow-stats/client/dist' do
   owner 'vagrant'
-  owner 'vagrant'
+  group 'vagrant'
   mode '0755'
   action :create
 end
