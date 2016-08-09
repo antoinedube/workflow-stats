@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import { appHistory } from '../main.jsx';
 import Request from '../models/request.js';
+import Session from '../session/session.js';
 
 export default class Login extends Component {
   constructor(props) {
@@ -18,7 +20,8 @@ export default class Login extends Component {
   submitForm() {
     let request = new Request('/login');
     request.post(this.state).done((response) => {
-      console.log('response: ', response);
+      Session.setUser(response.user);
+      appHistory.push('/users');
     });
   }
 

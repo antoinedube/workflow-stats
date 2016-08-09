@@ -9,7 +9,7 @@ import Login from './views/login.jsx';
 import UsersList from './views/users-list.jsx';
 
 
-const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
+export const appHistory = useRouterHistory(createHashHistory)({ queryKey: false });
 
 class NotFound extends Component {
   render() {

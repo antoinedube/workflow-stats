@@ -4,7 +4,13 @@ var register = function(app) {
   app.post('/login',
     passport.authenticate('local'),
     function(req, res) {
-      res.json({ 'message': 'Authentication successful' });
+      var userData = req.user.dataValues;
+      var returnData = {
+        id: userData.id,
+        email: userData.email,
+        username: userData.username
+      };
+      res.json({ 'message': 'Authentication successful', 'user': returnData });
     }
   );
 
