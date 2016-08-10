@@ -2,7 +2,7 @@
 driver:
   name: vagrant
   network:
-    - ["forwarded_port", {guest: 3000, host: 3000}]
+    - ["forwarded_port", { guest: 3000, host: 3000 }]
 
 provisioner:
   name: chef_zero
@@ -15,6 +15,8 @@ suites:
     run_list:
       - recipe[apt::default]
       - recipe[git::default]
+      - recipe[vim::default]
       - recipe[workflowstats::install_dependencies]
       - recipe[workflowstats::setup_code]
+      - recipe[workflowstats::database_config]
     attributes:

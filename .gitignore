@@ -1,5 +1,5 @@
 node_modules
-server/database/config.json
+server/database/*.json
 client/stylesheets/bootstrap.zip
 dist/
 *.log

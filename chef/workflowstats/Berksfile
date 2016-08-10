@@ -5,3 +5,4 @@ metadata
 # in dev, run 'berks install'
 cookbook "apt"
 cookbook "git"
+cookbook "vim"
