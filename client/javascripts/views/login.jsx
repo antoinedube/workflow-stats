@@ -27,19 +27,21 @@ export default class Login extends Component {
 
   render() {
     return (
-      <form onSubmit={ this.submitForm.bind(this) }>
-        <div className="form-group">
-          <label htmlFor="usernameInput">Username</label>
-          <input type="text" className="form-control" id="usernameInput" placeholder="Username" onChange={ this.handleUsernameChange.bind(this) } />
-        </div>
-        <div className="form-group">
-          <label htmlFor="passwordInput">Password</label>
-          <input type="password" className="form-control" id="passwordInput" placeholder="Password" onChange={ this.handlePasswordChange.bind(this) } />
-        </div>
-        <div className="form-group">
-          <button type="submit" className="btn btn-primary">Submit</button>
-        </div>
-      </form>
+      <div className="login-form-container">
+        <form onSubmit={ this.submitForm.bind(this) }>
+          <div className="form-group">
+            <label htmlFor="usernameInput">Username</label>
+            <input type="text" className="form-control" id="usernameInput" placeholder="Username" onChange={ this.handleUsernameChange.bind(this) } />
+          </div>
+          <div className="form-group">
+            <label htmlFor="passwordInput">Password</label>
+            <input type="password" className="form-control" id="passwordInput" placeholder="Password" onChange={ this.handlePasswordChange.bind(this) } />
+          </div>
+          <div className="form-group">
+            <button type="submit" className="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
     );
   }
 }

@@ -11,7 +11,7 @@ directory '/home/vagrant/workflow-stats/server/database' do
   action :create
 end
 
-template '/home/vagrant/workflow-stats/database/pg-config.json' do
+template '/home/vagrant/workflow-stats/server/database/pg-config.json' do
   source 'pg-config.json.erb'
   owner 'vagrant'
   group 'vagrant'
@@ -22,5 +22,16 @@ template '/home/vagrant/workflow-stats/database/pg-config.json' do
     :host => "localhost",
     :port => "5432",
     :dialect => "postgres"
+  )
+end
+
+template '/home/vagrant/workflow-stats/server/database/redis-config.json' do
+  source 'redis-config.json.erb'
+  owner 'vagrant'
+  group 'vagrant'
+  variables(
+    :host => "localhost",
+    :port => "6379",
+    :ttl => "3600"
   )
 end

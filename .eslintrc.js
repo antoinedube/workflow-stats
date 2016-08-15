@@ -52,6 +52,7 @@ module.exports = {
     "equal": true,
     "it": true,
     "models": true,
-    "Sequalize": true
+    "sequelize": true,
+    "Sequelize": true
   }
 };

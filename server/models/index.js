@@ -1,11 +1,11 @@
 'use strict';
 
-var fs        = require('fs');
-var path      = require('path');
+var fs = require('fs');
+var path = require('path');
 var Sequelize = require('sequelize');
-var basename  = path.basename(module.filename);
-var config    = require('../database/pg-config.json');
-var db        = {};
+var basename = path.basename(module.filename);
+var config = require('../database/pg-config.json');
+var db = {};
 var logger = require('../logging/index.js');
 
 var sequelize = new Sequelize(config.database, config.username, config.password, {

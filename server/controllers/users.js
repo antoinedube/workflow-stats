@@ -1,5 +1,4 @@
 var models = require('../models/index');
-
 var local_strategy = require('../passport/local-strategy.js');
 
 var register = function(app) {

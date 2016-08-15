@@ -1,0 +1,17 @@
+.navbar-default {
+  background-color: #6C7A89 !important;
+  border-color: #6C7A89 !important;
+  color: #F2F1EF !important;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-link, .navbar-default .btn-link {
+  color: #F2F1EF !important;
+}
+
+.navbar-default .navbar-text, .navbar-default .navbar-nav > li > a {
+  color: #F2F1EF !important;
+}
+
+.navbar-text.navbar-right {
+  cursor: pointer;
+}

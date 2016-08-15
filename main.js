@@ -1,19 +1,18 @@
 var _ = require('lodash');
-var express = require('express');
-var session = require('express-session');
-var env = process.env.NODE_ENV || 'development';
-var redisConfig = require('./server/database/redis-config.json')[env];
-var redisStore = require('connect-redis')(session);
-var cookieParser = require('cookie-parser');
-var redis = require('redis');
-var redisClient = redis.createClient();
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var express = require('express');
+var localStrategy = require('./server/passport/local-strategy.js');
 var morgan = require('morgan');
 var passport = require('passport');
-var local_strategy = require('./server/passport/local-strategy.js');
+var redis = require('redis');
+var redisClient = redis.createClient();
+var redisConfig = require('./server/database/redis-config.json');
+var session = require('express-session');
+var redisStore = require('connect-redis')(session);
 
 var app = express();
-local_strategy.configure();
+localStrategy.configure();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

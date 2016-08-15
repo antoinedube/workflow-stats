@@ -18,6 +18,12 @@ apt_package 'nodejs' do
   action :install
 end
 
-apt_package 'node-gyp' do
+apt_package 'build-essential' do
   action :install
+end
+
+execute 'install_node_gyp' do
+  command 'npm install -g node-gyp'
+  user 'root'
+  group 'root'
 end

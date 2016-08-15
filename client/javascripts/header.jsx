@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { appHistory } from './main.jsx';
 import Request from './models/request.js';
 import Session from './session/session.js';
 
@@ -8,6 +9,7 @@ export default class Header extends Component {
     let request = new Request('/logout');
     request.post({}).done(() => {
       Session.removeUser();
+      appHistory.push('/login');
     });
   }
 
