@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
 var express = require('express');
 var localStrategy = require('./server/passport/local-strategy.js');
+var logger = require('./server/logging/index.js');
 var morgan = require('morgan');
 var passport = require('passport');
 var redis = require('redis');
@@ -10,6 +11,7 @@ var redisClient = redis.createClient();
 var redisConfig = require('./server/database/redis-config.json');
 var session = require('express-session');
 var redisStore = require('connect-redis')(session);
+var models = require('./server/models/index.js');
 
 var app = express();
 localStrategy.configure();
@@ -40,5 +42,13 @@ _.forEach(['authentication', 'issues', 'users'], function(name) {
   var module = controllers_path + name;
   require(module).register(app);
 });
+
+// Test PG and redis connections
+models.sequelize.authenticate()
+  .catch(function(error) {
+    logger.error(error);
+  });
+
+redisClient.on('error', logger.error);
 
 app.listen(3000);

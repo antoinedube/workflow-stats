@@ -10,7 +10,7 @@ var register = function(app) {
   });
 
   app.post('/issues', api_token_strategy.isTokenValid, function(req, res) {
-    models.issue.create({ 'content': req.body.title }).then(function(createdIssue) {
+    models.issue.create({ 'content': JSON.stringify(req.body) }).then(function(createdIssue) {
       res.json({ 'message': 'success', 'issue': createdIssue });
     });
   });
