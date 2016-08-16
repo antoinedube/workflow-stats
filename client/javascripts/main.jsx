@@ -4,6 +4,7 @@ import { Router, Route, useRouterHistory } from 'react-router';
 import { createHashHistory } from 'history';
 
 import Header from './header.jsx';
+import IssuesList from './views/issues-list.jsx';
 import Login from './views/login.jsx';
 import UsersList from './views/users-list.jsx';
 
@@ -29,6 +30,7 @@ export default class App extends Component {
         <Header />
         <div className="page-content container-fluid">
           <Router history={ appHistory }>
+            <Route path='/issues' component={ IssuesList } />
             <Route path='/login' component={ Login } />
             <Route path='/users' component={ UsersList } />
             <Route path='*' component={ NotFound } />

@@ -1,7 +1,7 @@
 var bcrypt = require('bcrypt');
 
 module.exports = function(sequelize, DataTypes) {
-  var user = sequelize.define('user', {
+  return sequelize.define('user', {
     email: DataTypes.STRING,
     username: DataTypes.STRING,
     password: DataTypes.STRING
@@ -19,5 +19,4 @@ module.exports = function(sequelize, DataTypes) {
     },
     paranoid: true
   });
-  return user;
 };
