@@ -22,6 +22,16 @@ apt_package 'build-essential' do
   action :install
 end
 
+apt_package 'redis-server' do
+  action :install
+end
+
+execute 'start_redis' do
+  command 'systemctl start redis'
+  user 'root'
+  group 'root'
+end
+
 execute 'install_node_gyp' do
   command 'npm install -g node-gyp'
   user 'root'

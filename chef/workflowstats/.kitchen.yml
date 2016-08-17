@@ -19,4 +19,5 @@ suites:
       - recipe[workflowstats::install_dependencies]
       - recipe[workflowstats::setup_code]
       - recipe[workflowstats::database_config]
+      - recipe[workflowstats::postgres_dev]
     attributes:
