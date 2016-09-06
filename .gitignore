@@ -3,3 +3,4 @@ server/database/*.json
 client/stylesheets/bootstrap.zip
 dist/
 *.log
+*.tar.gz

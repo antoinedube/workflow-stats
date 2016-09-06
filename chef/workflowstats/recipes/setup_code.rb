@@ -21,7 +21,7 @@ end
 
 execute 'install_npm_dependencies' do
   cwd '/home/vagrant/workflow-stats'
-  command 'npm install'
+  command 'npm install --unsafe-perm=true'
   user 'vagrant'
   group 'vagrant'
 end

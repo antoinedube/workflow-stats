@@ -12,7 +12,7 @@ template '/home/vagrant/workflow-stats/server/database/pg-config.json' do
     :database => "wfs",
     :username => "wfs",
     :password => "wfs",
-    :host => "localhost",
+    :host => "10.135.174.55",
     :port => "5432",
     :dialect => "postgres"
   )
