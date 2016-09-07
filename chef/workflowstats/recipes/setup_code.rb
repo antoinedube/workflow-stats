@@ -4,38 +4,45 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-directory '/home/vagrant/workflow-stats' do
-  owner 'vagrant'
-  group 'vagrant'
+directory node['workflowstats']['document_root'] do
+  owner node['workflowstats']['user']
+  group node['workflowstats']['group']
   mode '0755'
   action :create
 end
 
-git '/home/vagrant/workflow-stats' do
-  repository 'https://github.com/antoinedube/workflow-stats.git'
+directory node['workflowstats']['source_directory'] do
+  owner node['workflowstats']['user']
+  group node['workflowstats']['group']
+  mode '0755'
+  action :create
+end
+
+git node['workflowstats']['source_directory'] do
+  repository node['workflowstats']['source_repository']
   revision 'master'
   action :sync
-  user 'vagrant'
-  group 'vagrant'
+  user node['workflowstats']['user']
+  group node['workflowstats']['group']
 end
 
 execute 'install_npm_dependencies' do
-  cwd '/home/vagrant/workflow-stats'
+  cwd node['workflowstats']['source_directory']
   command 'npm install --unsafe-perm=true'
-  user 'vagrant'
-  group 'vagrant'
+  user node['workflowstats']['user']
+  group node['workflowstats']['group']
 end
 
-directory '/home/vagrant/workflow-stats/client/dist' do
-  owner 'vagrant'
-  group 'vagrant'
+directory "#{node['workflowstats']['source_directory']}/client/dist" do
+  owner node['workflowstats']['user']
+  group node['workflowstats']['group']
   mode '0755'
   action :create
 end
 
 execute 'build_client_app' do
-  cwd '/home/vagrant/workflow-stats'
+  cwd node['workflowstats']['source_directory']
   command './gulp'
-  user 'vagrant'
-  group 'vagrant'
+  user node['workflowstats']['user']
+  group node['workflowstats']['group']
 end

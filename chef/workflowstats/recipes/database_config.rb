@@ -4,17 +4,17 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-directory '/home/vagrant/workflow-stats/server/database' do
-  owner 'vagrant'
-  group 'vagrant'
+directory "#{node['workflowstats']['source_directory']}/server/database" do
+  owner node['workflowstats']['user']
+  group node['workflowstats']['group']
   mode '0755'
   action :create
 end
 
-template '/home/vagrant/workflow-stats/server/database/redis-config.json' do
+template "#{node['workflowstats']['source_directory']}/server/database/redis-config.json" do
   source 'redis-config.json.erb'
-  owner 'vagrant'
-  group 'vagrant'
+  owner node['workflowstats']['user']
+  group node['workflowstats']['group']
   variables(
     :host => "localhost",
     :port => "6379",

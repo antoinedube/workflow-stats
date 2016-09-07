@@ -6,8 +6,8 @@
 
 
 execute 'start_server' do
-  cwd '/home/vagrant/workflow-stats'
+  cwd node['workflowstats']['source_directory']
   command 'node main.js'
-  user 'vagrant'
-  group 'vagrant'
+  user node['workflowstats']['user']
+  group node['workflowstats']['group']
 end
