@@ -14,7 +14,7 @@ template '/home/vagrant/workflow-stats/server/database/pg-config.json' do
     :username => postgres_settings['db_user'],
     :password => postgres_settings['db_password'],
     :hostname => postgres_settings['address'],
-    :port => postgres_settings['port']
-    :dialent => 'postgres'
+    :port => postgres_settings['port'],
+    :dialect => 'postgres'
   )
 end
