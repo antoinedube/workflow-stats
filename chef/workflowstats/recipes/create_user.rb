@@ -11,10 +11,13 @@ user node['workflowstats']['user'] do
   group node['workflowstats']['group']
   system true
   shell '/bin/bash'
+  home "/home/#{node['workflowstats']['user']}"
 end
 
 directory "/home/#{node['workflowstats']['user']}" do
   owner node['workflowstats']['user']
   group node['workflowstats']['group']
+  mode '0755'
+  action :create
   recursive true
 end

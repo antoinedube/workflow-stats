@@ -2,7 +2,7 @@
 driver:
   name: vagrant
   network:
-    - ["forwarded_port", { guest: 3000, host: 3000 }]
+    - ["forwarded_port", { guest: 80, host: 8080 }]
 
 provisioner:
   name: chef_zero
@@ -21,4 +21,5 @@ suites:
       - recipe[workflowstats::setup_code]
       - recipe[workflowstats::database_config]
       - recipe[workflowstats::postgres_dev]
+      - recipe[workflowstats::start_server]
     attributes:

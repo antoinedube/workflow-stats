@@ -9,13 +9,7 @@ directory node['workflowstats']['document_root'] do
   group node['workflowstats']['group']
   mode '0755'
   action :create
-end
-
-directory node['workflowstats']['source_directory'] do
-  owner node['workflowstats']['user']
-  group node['workflowstats']['group']
-  mode '0755'
-  action :create
+  recursive true
 end
 
 git node['workflowstats']['source_directory'] do
@@ -26,11 +20,11 @@ git node['workflowstats']['source_directory'] do
   group node['workflowstats']['group']
 end
 
-execute 'install_npm_dependencies' do
-  cwd node['workflowstats']['source_directory']
-  command 'npm install --unsafe-perm=true'
-  user node['workflowstats']['user']
+directory "#{node['workflowstats']['source_directory']}/logging" do
+  owner node['workflowstats']['user']
   group node['workflowstats']['group']
+  mode '0755'
+  action :create
 end
 
 directory "#{node['workflowstats']['source_directory']}/client/dist" do
@@ -40,9 +34,18 @@ directory "#{node['workflowstats']['source_directory']}/client/dist" do
   action :create
 end
 
+execute 'install_npm_dependencies' do
+  cwd node['workflowstats']['source_directory']
+  command 'npm install --unsafe-perm true'
+  user node['workflowstats']['user']
+  group node['workflowstats']['group']
+  environment "HOME" => "/home/http"
+end
+
 execute 'build_client_app' do
   cwd node['workflowstats']['source_directory']
   command './gulp'
   user node['workflowstats']['user']
   group node['workflowstats']['group']
+  environment "HOME" => "/home/http"
 end

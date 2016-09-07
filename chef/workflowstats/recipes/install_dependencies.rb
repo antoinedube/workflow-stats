@@ -22,6 +22,10 @@ apt_package 'build-essential' do
   action :install
 end
 
+apt_package 'python' do
+  action :install
+end
+
 apt_package 'redis-server' do
   action :install
 end
