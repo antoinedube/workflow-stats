@@ -20,13 +20,6 @@ git node['workflowstats']['source_directory'] do
   group node['workflowstats']['group']
 end
 
-directory "#{node['workflowstats']['source_directory']}/logging" do
-  owner node['workflowstats']['user']
-  group node['workflowstats']['group']
-  mode '0755'
-  action :create
-end
-
 directory "#{node['workflowstats']['source_directory']}/client/dist" do
   owner node['workflowstats']['user']
   group node['workflowstats']['group']

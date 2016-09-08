@@ -13,7 +13,7 @@ template "#{node['workflowstats']['source_directory']}/server/database/pg-config
     :database => 'wfs',
     :username => postgres_settings['db_user'],
     :password => postgres_settings['db_password'],
-    :hostname => postgres_settings['address'],
+    :host=> postgres_settings['address'],
     :port => postgres_settings['port'],
     :dialect => 'postgres'
   )
