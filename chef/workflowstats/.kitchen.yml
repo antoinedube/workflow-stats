@@ -21,5 +21,7 @@ suites:
       - recipe[workflowstats::setup_code]
       - recipe[workflowstats::database_config]
       - recipe[workflowstats::postgres_dev]
+      - recipe[workflowstats::migrations]
+      - recipe[workflowstats::seed_data]
       - recipe[workflowstats::start_server]
     attributes:

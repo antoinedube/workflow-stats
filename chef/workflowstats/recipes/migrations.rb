@@ -4,5 +4,10 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-# Seed should be a separate recipe to avoid being included in PROD.
-# Same for API key generation
+execute 'build_client_app' do
+  cwd node['workflowstats']['source_directory']
+  command './sequelize db:migrate'
+  user node['workflowstats']['user']
+  group node['workflowstats']['group']
+  environment "HOME" => "/home/http"
+end
