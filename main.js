@@ -38,7 +38,7 @@ app.use('/javascripts', express.static('client/dist'));
 app.use('/stylesheets', express.static('client/dist'));
 
 var controllers_path = './server/controllers/';
-_.forEach(['authentication', 'issues', 'users'], function(name) {
+_.forEach(['authentication', 'transitions', 'users'], function(name) {
   var module = controllers_path + name;
   require(module).register(app);
 });

@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) { // eslint-disable-line no-unused-vars
-    return queryInterface.createTable('issues', {
+    return queryInterface.createTable('transitions', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -22,6 +22,6 @@ module.exports = {
     });
   },
   down: function(queryInterface, Sequelize) { // eslint-disable-line no-unused-vars
-    return queryInterface.dropTable('issues');
+    return queryInterface.dropTable('transitions');
   }
 };

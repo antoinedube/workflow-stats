@@ -5,7 +5,7 @@ describe('API-token authentication', function() {
   it('should return valid response with valid token', function(done) {
     request({
       method: 'POST',
-      uri: 'http://localhost:3000/issues',
+      uri: 'http://localhost:3000/transitions',
       qs: {
         token: 'ahsdoifausyfoewufhlkdvhxlkjvhasdliaufyoesuiasfhdlkjvz'
       },
@@ -21,7 +21,7 @@ describe('API-token authentication', function() {
   it('should return invalid response with invalid token', function(done) {
     request({
       method: 'POST',
-      uri: 'http://localhost:3000/issues',
+      uri: 'http://localhost:3000/transitions',
       qs: {
         token: 'sometokenthatiscertainlynotvalid'
       },

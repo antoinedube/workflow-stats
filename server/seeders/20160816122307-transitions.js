@@ -2,7 +2,7 @@
 
 module.exports = {
   up: function (queryInterface, Sequelize) { // eslint-disable-line no-unused-vars
-    return queryInterface.bulkInsert('issues', [
+    return queryInterface.bulkInsert('transitions', [
       {
         content: '{ name: \'something\'}',
         createdAt: new Date().toISOString(),
@@ -17,6 +17,6 @@ module.exports = {
   },
 
   down: function (queryInterface, Sequelize) { // eslint-disable-line no-unused-vars
-    return queryInterface.bulkDelete('issues', null, {});
+    return queryInterface.bulkDelete('transitions', null, {});
   }
 };

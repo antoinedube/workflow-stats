@@ -1,9 +1,9 @@
 import Base from './base.js';
 
-export default class Issue extends Base {
+export default class Transition extends Base {
   constructor() {
     super({
-      'url': '/issues'
+      'url': '/transitions'
     });
   }
 }
