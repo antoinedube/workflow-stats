@@ -4,9 +4,9 @@
 #
 # Copyright (c) 2016 The Authors, All Rights Reserved.
 
-apt_package 'curl' do
-  action :install
-end
+apt_package 'curl'
+
+apt_package 'build-essential'
 
 execute 'add_remote_repository_for_nodejs' do
   command 'curl -sL https://deb.nodesource.com/setup_6.x | bash -'
@@ -14,21 +14,11 @@ execute 'add_remote_repository_for_nodejs' do
   group 'root'
 end
 
-apt_package 'nodejs' do
-  action :install
-end
+apt_package 'nodejs'
 
-apt_package 'build-essential' do
-  action :install
-end
+apt_package 'python'
 
-apt_package 'python' do
-  action :install
-end
-
-apt_package 'redis-server' do
-  action :install
-end
+apt_package 'redis-server'
 
 execute 'start_redis' do
   command 'systemctl start redis'

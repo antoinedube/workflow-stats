@@ -13,6 +13,6 @@ end
 execute 'start_server' do
   cwd node['workflowstats']['source_directory']
   command 'node main.js 2>&1 > server/logging/main_js_output.log &'
-  user node['workflowstats']['user']
-  group node['workflowstats']['group']
+  # user node['workflowstats']['user']
+  # group node['workflowstats']['group']
 end
