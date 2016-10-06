@@ -1,26 +1,19 @@
 'use strict';
 
-module.exports = {
-  up: function (queryInterface, Sequelize) {
-    /*
-      Add altering commands here.
-      Return a promise to correctly handle asynchronicity.
+var crypto = require('crypto');
 
-      Example:
-      return queryInterface.bulkInsert('Person', [{
-        name: 'John Doe',
-        isBetaMember: false
-      }], {});
-    */
+module.exports = {
+  up: function (queryInterface, Sequelize) { // eslint-disable-line no-unused-vars
+    return queryInterface.bulkInsert('api_tokens', [
+      {
+        value: crypto.randomBytes(64).toString('hex'),
+        createdAt: new Date().toISOString(),
+        updatedAt: new Date().toISOString()
+      }
+    ], {});
   },
 
-  down: function (queryInterface, Sequelize) {
-    /*
-      Add reverting commands here.
-      Return a promise to correctly handle asynchronicity.
-
-      Example:
-      return queryInterface.bulkDelete('Person', null, {});
-    */
+  down: function (queryInterface, Sequelize) { // eslint-disable-line no-unused-vars
+    return queryInterface.bulkDelete('api_tokens', null, {});
   }
 };
